@@ -39,7 +39,7 @@ class QRView(private val registrar: PluginRegistry.Registrar, id: Int) :
         channel.setMethodCallHandler(this)
         checkAndRequestPermission(null)
         registrar.activity().application.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
-            override fun onActivityPaused(p0: Activity) {
+            override public abstract fun onActivityPaused(p0: Activity) {
                 if (p0 == registrar.activity()) {
                     barcodeView?.pause()
                 }
